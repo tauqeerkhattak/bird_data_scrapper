@@ -1,3 +1,4 @@
+import requests
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 import json
@@ -25,7 +26,20 @@ def scrap_bird_list():
         outfile.write(json.dumps(data, indent=4))
 
 
+def scrap_bird_image():
+    bird_name = "Yellow-scarfed tanager"
+    bird_name = bird_name.replace(" ", "_")
+    bird_name = bird_name.lower()
+    print(bird_name)
+    wiki_page_url = "https://en.wikipedia.org/wiki/"+bird_name
+    image_url = "https://en.wikipedia.org"
+    page = requests.get(wiki_page_url)
+    soup = BeautifulSoup(page.content, "html.parser")
+    image = soup.find('a', class_="image")
+    print(image_url+image.attrs["href"])
+
+
 if __name__ == '__main__':
-    scrap_bird_list()
+    scrap_bird_image()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
