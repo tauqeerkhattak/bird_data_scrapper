@@ -1,7 +1,13 @@
 from scrap_first import ScrapFirst
+from scrap_second import ScrapSecond
 
 
 if __name__ == '__main__':
-    print("Hello")
+
+    # animalia.bio
     sf = ScrapFirst()
     sf.scrap()
+
+    # wikipedia.org
+    # ss = ScrapSecond()
+    # ss.scrap()

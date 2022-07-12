@@ -14,7 +14,8 @@ class ScrapFirst:
     def save_image(self, image_url, bird_name):
         image_page = requests.get(image_url)
         directory = "birds/" + bird_name
-        Path(directory).mkdir(parents=True, exist_ok=True)
+        if not Path(directory).exists():
+            Path(directory).mkdir(parents=True, exist_ok=True)
         path = directory + "/" + bird_name + ".webp"
         with open(path, "wb") as handle:
             handle.write(image_page.content)
@@ -42,7 +43,8 @@ class ScrapFirst:
             data = json.load(json_file)
             birds = data["birds"]
             i = 0
-            while i < 5:
+            while i < 100:
+                print("Bird No: "+str(i))
                 self.scrap_data(birds[i])
                 i += 1
 
