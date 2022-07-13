@@ -33,7 +33,6 @@ class ScrapSecond:
             print(birds_json)
             outfile.write(json.dumps(birds_json, indent=4))
 
-
     def scrap_bird_image(self, bird_name):
         bird_name = bird_name.replace(" ", "_").lower()
         wiki_page_url = self.base_url + "/wiki/" + bird_name
@@ -68,9 +67,9 @@ class ScrapSecond:
         with open("birds.json", "r") as file:
             data = json.load(file)
             birds_data = data["birds"]
-            i = 0
-            while i < 100:
-                print("Bird No: " + str(i))
+            i = 500
+            while i <= 700:
+                print("Bird No: " + str(i) + " Name: " + str(birds_data[i]))
                 self.scrap_bird_image(birds_data[i])
                 time.sleep(3)
                 i = i + 1
