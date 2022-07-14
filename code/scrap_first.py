@@ -43,7 +43,7 @@ class ScrapFirst:
             data = json.load(json_file)
             birds = data["birds"]
             i = 0
-            while i < 100:
+            while i < 700:
                 print("Bird No: "+str(i))
                 self.scrap_data(birds[i])
                 i += 1

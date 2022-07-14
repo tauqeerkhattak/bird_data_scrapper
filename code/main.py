@@ -5,9 +5,9 @@ from scrap_second import ScrapSecond
 if __name__ == '__main__':
 
     # animalia.bio
-    # sf = ScrapFirst()
-    # sf.scrap()
+    sf = ScrapFirst()
+    sf.scrap()
 
     # wikipedia.org
-    ss = ScrapSecond()
-    ss.scrap()
+    # ss = ScrapSecond()
+    # ss.scrap()
